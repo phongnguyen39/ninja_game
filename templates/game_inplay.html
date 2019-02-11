@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='my_styles.css')}}">
+    <title>Ninja Gold</title>
+</head>
+
+<body>
+    <div class='topbar'>
+    <h1>NINJA GOLD</h1>
+    <h2>Ready to make bank?!</h2>
+</div>
+
+    <div class='container'>
+        <div class='leftbox'>
+
+            <h1>Gold Status: {{total_gold}}</h1>
+            <div>
+                <div class='areas'>
+                    <h1 >Farm</h1>
+                    <h3>Earns 10-20 golds</h3>
+                    <form action='/game_inplay' method='post'>
+                        <button for='input'>Start Farmin'</button>
+                        <input type='hidden' name='input' value='farm'>
+                    </form>
+                </div>
+                <div class='areas'>
+                    <h1>Cave</h1>
+                    <h3>Earns 5-10 golds</h3>
+                    <form action='/game_inplay' method='post'>
+                        <button for='input'>Start Cavin'</button>
+                        <input type='hidden' name='input' value='cave'>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <div class='areas'>
+                    <h1>Real Estate</h1>
+                    <h3>Earns 2-5 golds</h3>
+                    <form action='/game_inplay' method='post'>
+                        <button for='input'>Start Estate'</button>
+                        <input type='hidden' name='input' value='estate'>
+                    </form>
+                </div>
+                <div class='areas'>
+                    <h1>Casino</h1>
+                    <h3>Earns 0-50 golds</h3>
+                    <form action='/game_inplay' method='post'>
+                        <button for='input'>Start Casino'</button>
+                        <input type='hidden' name='input' value='casino'>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+        <paragraph style = 'overflow-y: auto' name='activites' class='rightbox'>Progress...
+            {{progress_notes | safe}}
+        </paragraph>
+        <form action ='/reset' method='post'>
+            <button for='reset'>Reset</button>
+            <input type='hidden' name='reset'>
+        </form>
+    </form>
+
+
+</body>
+
+</html>
